@@ -1,19 +1,15 @@
 #include <cmath>
 #include <cstdio>
 #include <iostream>
-#include <sstream>
 
 int main(int argc, char **argv) {
   int count = 0;
   int current = 50;
+  int value;
+  char rotation;
 
-  std::string line;
-  while (getline(std::cin, line)) {
-    std::istringstream iss(line.c_str());
+  while (std::cin >> rotation >> value) {
     int start = current;
-    char rotation;
-    int value;
-    iss >> rotation >> value;
 
     // Calculate number of rotations
     count += std::floor(value / 100);
