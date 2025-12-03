@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
   std::string line;
 
   while (std::cin >> line) {
-    char jolt[12];
+    uint64_t jolt = 0;
     size_t next = 0;
 
     for (size_t digit = 0; digit <= 11; ++digit) {
@@ -21,11 +21,11 @@ int main(int argc, char **argv) {
         }
       }
 
-      jolt[digit] = line[max];
+      jolt = jolt * 10 + (line[max] - '0');
       next = max + 1;
     }
 
-    count += std::strtoull(jolt, nullptr, 10);
+    count += jolt;
   }
 
   printf("Result: %zu\n", count);
